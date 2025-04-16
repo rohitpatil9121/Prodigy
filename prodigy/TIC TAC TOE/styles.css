@@ -1,0 +1,127 @@
+:root {
+    --primary-color: #007bff;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --board-bg: #fff;
+    --cell-border: #ccc;
+    --cell-hover-bg: #e0f0ff;
+    --win-color: #28a745;
+    --draw-color: #ffc107;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  #game {
+    background: var(--board-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #status {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    min-height: 1.5em;
+    font-weight: 600;
+  }
+  
+  #board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 1 / 1;
+    user-select: none;
+  }
+  
+  .cell {
+    background: white;
+    border: 2px solid var(--cell-border);
+    border-radius: 8px;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+  
+  .cell:hover:not(.disabled):not(.win) {
+    background-color: var(--cell-hover-bg);
+  }
+  
+  .cell.disabled {
+    cursor: default;
+  }
+  
+  .cell.win {
+    background-color: var(--win-color);
+    color: white;
+    font-weight: 700;
+  }
+  
+  #controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 100px;
+    user-select: none;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 480px) {
+    #game {
+      max-width: 100%;
+      padding: 1rem;
+    }
+    .cell {
+      font-size: 2.5rem;
+    }
+    button {
+      min-width: 80px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
