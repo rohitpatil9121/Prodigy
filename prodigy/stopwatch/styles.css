@@ -1,0 +1,127 @@
+:root {
+    --primary-color: #007bff;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --button-bg: #007bff;
+    --button-hover-bg: #0056b3;
+    --button-text-color: #fff;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .stopwatch {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 2rem 3rem;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .time-display {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  button {
+    background-color: var(--button-bg);
+    border: none;
+    color: var(--button-text-color);
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 80px;
+    user-select: none;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: var(--button-hover-bg);
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .laps {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+  }
+  
+  .laps h2 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .lap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 160px;
+    overflow-y: auto;
+  }
+  
+  .lap-list li {
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid #eee;
+    font-family: monospace;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .lap-list li:nth-child(odd) {
+    background-color: #f7f7f7;
+  }
+  
+  @media (max-width: 480px) {
+    .stopwatch {
+      padding: 1.5rem 1.5rem;
+    }
+    .time-display {
+      font-size: 2.5rem;
+    }
+    button {
+      min-width: 70px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
